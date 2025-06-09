@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozmoz Business Model Canvas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .canvas {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2px;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #333;
+        }
+        .canvas-box {
+            background-color: white;
+            padding: 15px;
+            min-height: 300px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .canvas-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .canvas-content {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #555;
+        }
+        .key-partners { grid-column: 1; grid-row: 1; }
+        .key-activities { grid-column: 2; grid-row: 1; }
+        .value-proposition { grid-column: 3; grid-row: 1 / 3; min-height: 600px; }
+        .customer-relationships { grid-column: 4; grid-row: 1; }
+        .customer-segments { grid-column: 5; grid-row: 1; }
+        .key-resources { grid-column: 2; grid-row: 2; }
+        .channels { grid-column: 4; grid-row: 2; }
+        .cost-structure { grid-column: 1 / 3; grid-row: 3; }
+        .revenue-streams { grid-column: 4 / 6; grid-row: 3; }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        ul {
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        .highlight {
+            background-color: #e8f5e8;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 5px 0;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #45a049;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        .close:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ozmoz Business Model Canvas</h1>
+    
+    <div class="canvas">
+        <div class="canvas-box key-partners">
+            <div class="canvas-title">🤝 Key Partnerships</div>
+            <div class="canvas-content">
+                <strong>Strategische partners:</strong>
+                <ul>
+                    <li><a href="#coaches-therapeuten">Coaches en therapeuten</a> (doorverwijzingen)</li>
+                    <li><a href="#wellness-influencers">Wellness influencers</a> (bereik)</li>
+                    <li><a href="#corporate-trainers">Corporate trainers</a> (B2B)</li>
+                    <li><a href="#podcast-hosts">Podcast hosts</a> (thought leadership)</li>
+                </ul>
+                
+                <strong>Technologie partners:</strong>
+                <ul>
+                    <li>AI/tech ontwikkelaars</li>
+                    <li>Platform providers (Zoom, email)</li>
+                    <li>Payment processors</li>
+                </ul>
+                
+                <strong>Content partners:</strong>
+                <ul>
+                    <li>Videomakers</li>
+                    <li>Copywriters</li>
+                    <li>Translators</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box key-activities">
+            <div class="canvas-title">🏗️ Key Activities</div>
+            <div class="canvas-content">
+                <strong>Product Development:</strong>
+                <ul>
+                    <li>Nieuwe challenges ontwikkelen</li>
+                    <li>5-stappen methodiek verbeteren</li>
+                    <li>AI-tools ontwikkeling (GPT)</li>
+                </ul>
+                
+                <strong>Content Creation:</strong>
+                <ul>
+                    <li>YouTube video's</li>
+                    <li>Workshop materialen</li>
+                    <li>Email sequences</li>
+                </ul>
+                
+                <strong>Community Building:</strong>
+                <ul>
+                    <li>Live workshops faciliteren</li>
+                    <li>Online groepen begeleiden</li>
+                    <li>Alumni netwerk</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box value-proposition">
+            <div class="canvas-title">🎯 Value Proposition</div>
+            <div class="canvas-content">
+                <div class="highlight">
+                    <strong>Kernwaarde:</strong> Help zoekende professionals hun innerlijke kompas terugvinden om authentieke levensbeslissingen te maken
+                </div>
+                
+                <strong>Unieke differentiatie:</strong>
+                <ul>
+                    <li><strong>Van binnen naar buiten werken</strong> (niet andersom)</li>
+                    <li><strong>Meetbare remote viewing technieken</strong> met accuratesse-scores</li>
+                    <li><strong>Kleine groepen</strong> (max 8 deelnemers) voor veilige community</li>
+                    <li><strong>5-stappen progressieve ladder</strong> die twijfels wegneemt</li>
+                    <li><strong>Oude wijsheid + moderne tools</strong> (intuïtie + AI)</li>
+                </ul>
+                
+                <strong>Problemen die je oplost:</strong>
+                <ul>
+                    <li>Leven volgens andermans verwachtingen</li>
+                    <li>Existentiële leegte ondanks extern succes</li>
+                    <li>Twijfel aan eigen innerlijke wijsheid</li>
+                    <li>Gebrek aan duidelijke richting</li>
+                </ul>
+                
+                <strong>Voordelen na Ozmoz:</strong>
+                <ul>
+                    <li>Beslissingen vanuit eigen kompas</li>
+                    <li>Duidelijke richting die past</li>
+                    <li>Meetbare vaardigheden</li>
+                    <li>Exclusieve community</li>
+                    <li>Leven in resonantie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box customer-relationships">
+            <div class="canvas-title">🤝 Customer Relationships</div>
+            <div class="canvas-content">
+                <strong>Relatietype:</strong> Persoonlijke begeleiding + community
+                
+                <strong>Customer Journey:</strong>
+                <ul>
+                    <li><strong>Awareness:</strong> YouTube, social media</li>
+                    <li><strong>Interest:</strong> Gratis challenges</li>
+                    <li><strong>Consideration:</strong> Live workshops, AI-coach</li>
+                    <li><strong>Purchase:</strong> Betaalde groepssessies</li>
+                    <li><strong>Retention:</strong> Alumni community</li>
+                    <li><strong>Advocacy:</strong> 3 Vrienden Challenge</li>
+                </ul>
+                
+                <strong>Community-aspect:</strong>
+                <ul>
+                    <li>Exclusieve groep gelijkgestemden</li>
+                    <li>Peer-to-peer learning</li>
+                    <li>Langdurige begeleiding</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box customer-segments">
+            <div class="canvas-title">👥 Customer Segments</div>
+            <div class="canvas-content">
+                <strong>Segment 1: Zoekende Starters (30-35)</strong>
+                <ul>
+                    <li>Beslissende levensfase</li>
+                    <li>Geen duidelijke richting</li>
+                    <li>Willen authentieke keuzes</li>
+                </ul>
+                
+                <strong>Segment 2: 'Klaar-bouwers' (40-45)</strong>
+                <ul>
+                    <li>Hebben "alles" maar voelen leegte</li>
+                    <li>Existentiële crisis</li>
+                    <li>Zoeken betekenis</li>
+                </ul>
+                
+                <strong>Gemeenschappelijk:</strong>
+                <ul>
+                    <li>Hogere opleiding</li>
+                    <li>Goed inkomen</li>
+                    <li>Interesse persoonlijke ontwikkeling</li>
+                    <li>Leven volgens externe verwachtingen</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box key-resources">
+            <div class="canvas-title">🔑 Key Resources</div>
+            <div class="canvas-content">
+                <strong>Intellectueel eigendom:</strong>
+                <ul>
+                    <li>Ozmoz methodiek</li>
+                    <li>5-stappen ladder</li>
+                    <li>Remote viewing protocollen</li>
+                    <li>Brand en content library</li>
+                </ul>
+                
+                <strong>Digitale assets:</strong>
+                <ul>
+                    <li>Website en funnels</li>
+                    <li>Email lijst</li>
+                    <li>YouTube kanaal</li>
+                    <li>AI-tools</li>
+                </ul>
+                
+                <strong>Menselijke resources:</strong>
+                <ul>
+                    <li>Robbert's expertise</li>
+                    <li>Partner netwerk</li>
+                    <li>Tevreden klanten</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box channels">
+            <div class="canvas-title">📢 Channels</div>
+            <div class="canvas-content">
+                <strong>Digitale kanalen:</strong>
+                <ul>
+                    <li><strong>YouTube:</strong> Hoofdkanaal content marketing</li>
+                    <li><strong>Website:</strong> Conversie funnels</li>
+                    <li><strong>Email:</strong> Nurturing sequences</li>
+                    <li><strong>Social media:</strong> Instagram, LinkedIn</li>
+                </ul>
+                
+                <strong>Content strategie:</strong>
+                <ul>
+                    <li><strong>Viral:</strong> Ozmoz Challenge, 3 Vrienden</li>
+                    <li><strong>Educational:</strong> Remote viewing uitleg</li>
+                    <li><strong>Community:</strong> Testimonials, Q&A</li>
+                </ul>
+                
+                <strong>Partnerships:</strong>
+                <ul>
+                    <li>Cross-referrals coaches</li>
+                    <li>Podcast gastoptredens</li>
+                    <li>Wellness center workshops</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box cost-structure">
+            <div class="canvas-title">💸 Cost Structure</div>
+            <div class="canvas-content">
+                <strong>Vaste kosten (€450-1200/maand):</strong>
+                <ul>
+                    <li>Technologie: Website, email tools (€200-500)</li>
+                    <li>Marketing tools: Analytics, schedulers (€100-300)</li>
+                    <li>Subscripties: Zoom, storage, design (€150-400)</li>
+                </ul>
+                
+                <strong>Variabele kosten:</strong>
+                <ul>
+                    <li>Content productie (€500-2000/maand)</li>
+                    <li>Marketing spend (€1000-5000/maand)</li>
+                    <li>Partner commissions (10-20% van sales)</li>
+                </ul>
+                
+                <strong>Schalings-investeringen:</strong>
+                <ul>
+                    <li>Team uitbreiding (VA's, coaches)</li>
+                    <li>Technology development (apps, AI)</li>
+                    <li>International expansion</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="canvas-box revenue-streams">
+            <div class="canvas-title">💰 Revenue Streams</div>
+            <div class="canvas-content">
+                <strong>1. Betaalde Online Groepen (€297-497)</strong>
+                <ul>
+                    <li>3-uurs intensieve sessie</li>
+                    <li>Max 8 deelnemers</li>
+                    <li>PDF-rapport + ritueel</li>
+                </ul>
+                
+                <strong>2. Vervolgcursussen (€497-997)</strong>
+                <ul>
+                    <li>Advanced remote viewing</li>
+                    <li>Loopbaanbegeleiding</li>
+                    <li>Train-the-trainer</li>
+                </ul>
+                
+                <strong>3. 1-op-1 Coaching (€97-197/sessie)</strong>
+                
+                <strong>4. Digital Products (€27-97)</strong>
+                <ul>
+                    <li>Online cursussen</li>
+                    <li>Werkboeken</li>
+                    <li>Apps/tools</li>
+                </ul>
+                
+                <strong>5. Corporate Training (€2500-5000/dag)</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal voor Coaches en therapeuten -->
+    <div id="coaches-therapeuten" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🤝 Strategic Partnership: Coaches & Therapeuten</h2>
+            
+            <h3>Waarom zijn coaches en therapeuten ideale partners voor Ozmoz?</h3>
+            
+            <div class="highlight">
+                <strong>Complementaire expertise:</strong> Zij focussen op gedrag en emoties, wij op intuïtie en innerlijke wijsheid. Samen bieden we complete begeleiding.
+            </div>
+            
+            <h4>🎯 Doelgroep Overlap</h4>
+            <ul>
+                <li><strong>Zoekende professionals</strong> die zowel praktische tools als diepere inzichten willen</li>
+                <li><strong>Mensen in transitie</strong> die vastlopen in rationele analyse</li>
+                <li><strong>Succesvolle individuen</strong> met existentiële vragen</li>
+            </ul>
+            
+            <h4>💡 Win-Win Scenario's</h4>
+            <ul>
+                <li><strong>Voor coaches:</strong> Extra dimensie aan hun toolkit, unieke differentiatie</li>
+                <li><strong>Voor therapeuten:</strong> Aanvulling op traditionele therapie methoden</li>
+                <li><strong>Voor Ozmoz:</strong> Warme doorverwijzingen van vertrouwde professionals</li>
+                <li><strong>Voor cliënten:</strong> Holistische begeleiding die verder gaat dan symptoombestrijding</li>
+            </ul>
+            
+            <h4>🚀 Partnership Modellen</h4>
+            <ul>
+                <li><strong>Referral Program:</strong> 20% commissie op doorverwezen cliënten</li>
+                <li><strong>Co-created Content:</strong> Gezamenlijke workshops "Ratio + Intuïtie"</li>
+                <li><strong>Cross-training:</strong> Ozmoz technieken voor hun practice</li>
+                <li><strong>Client Journey:</strong> Structured handoff protocols</li>
+            </ul>
+            
+            <h4>📈 Business Impact</h4>
+            <ul>
+                <li><strong>Leadgeneratie:</strong> 50+ coaches in Nederland = 2-5 referrals/maand each</li>
+                <li><strong>Credibiliteit:</strong> Professional endorsement verhoogt vertrouwen</li>
+                <li><strong>Marktbereik:</strong> Toegang tot hun netwerken en cliëntbase</li>
+                <li><strong>Content Opportunities:</strong> Case studies, testimonials, joint webinars</li>
+            </ul>
+            
+            <h4>🎬 Implementatie Strategie</h4>
+            <ol>
+                <li><strong>Identificatie:</strong> Mapping van coaches/therapeuten in target regio's</li>
+                <li><strong>Pilot Program:</strong> 5 early adopters voor case studies</li>
+                <li><strong>Training Module:</strong> "Hoe herken je cliënten die baat hebben bij Ozmoz"</li>
+                <li><strong>Marketing Materiaal:</strong> Brochures, explaining videos, referral process</li>
+                <li><strong>Community Building:</strong> Maandelijkse netwerk meetings</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('coaches-therapeuten');
+        const links = document.querySelectorAll('a[href="#coaches-therapeuten"]');
+        const closeBtn = document.querySelector('.close');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+            });
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Placeholder voor andere links
+        const otherLinks = document.querySelectorAll('a[href^="#"]:not([href="#coaches-therapeuten"])');
+        otherLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Deze subpagina komt binnenkort beschikbaar!');
+            });
+        });
+    </script>
+</body>
+</html>
