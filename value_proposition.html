@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozmoz Value Proposition Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #ozmoz-value-proposition {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: #666;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .canvas-layout {
+            display: grid;
+            grid-template-columns: 1fr 40px 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        #client-side, #value-proposition {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        #client-side h2, #value-proposition h2 {
+            font-size: 2rem;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        #client-side h2 {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+        }
+
+        #value-proposition h2 {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+
+        .canvas-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .canvas-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        .canvas-divider::after {
+            content: '⟷';
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            position: relative;
+        }
+
+        article {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Client Side Colors */
+        #jobs::before { background: linear-gradient(135deg, #4834d4, #667eea); }
+        #pains::before { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+        #gains::before { background: linear-gradient(135deg, #00d2d3, #54a0ff); }
+
+        /* Product Side Colors */
+        #products::before { background: linear-gradient(135deg, #feca57, #ff9ff3); }
+        #before::before { background: linear-gradient(135deg, #ff9ff3, #54a0ff); }
+        #after::before { background: linear-gradient(135deg, #5f27cd, #00d2d3); }
+
+        article h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #jobs h3 { color: #4834d4; }
+        #pains h3 { color: #ee5a24; }
+        #gains h3 { color: #00d2d3; }
+        #products h3 { color: #ff6348; }
+        #before h3 { color: #ff9ff3; }
+        #after h3 { color: #5f27cd; }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        li:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Border colors for each section */
+        #jobs li { border-left-color: #4834d4; }
+        #pains li { border-left-color: #ff6b6b; }
+        #gains li { border-left-color: #00d2d3; }
+        #products li { border-left-color: #feca57; }
+        #before li { border-left-color: #ff9ff3; }
+        #after li { border-left-color: #5f27cd; }
+
+        /* Icons for each section */
+        li::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: inherit;
+        }
+
+        #jobs li::before { background: #4834d4; }
+        #pains li::before { background: #ff6b6b; }
+        #gains li::before { background: #00d2d3; }
+        #products li::before { background: #feca57; }
+        #before li::before { background: #ff9ff3; }
+        #after li::before { background: #5f27cd; }
+
+        strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .canvas-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .canvas-divider {
+                display: none;
+            }
+            
+            #client-side, #value-proposition {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #ozmoz-value-proposition {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            #client-side h2, #value-proposition h2 {
+                font-size: 1.6rem;
+                padding: 15px;
+            }
+            
+            article {
+                padding: 20px;
+            }
+            
+            article h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            li {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            li {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Special styling for products section */
+        #products {
+            background: linear-gradient(145deg, #fff7e6 0%, #ffe6cc 100%);
+        }
+
+        #products li strong {
+            color: #e67e22;
+        }
+
+        /* Add subtle animation */
+        article {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger the animation for each article */
+        #jobs { animation-delay: 0.1s; }
+        #pains { animation-delay: 0.2s; }
+        #gains { animation-delay: 0.3s; }
+        #products { animation-delay: 0.4s; }
+        #before { animation-delay: 0.5s; }
+        #after { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <section id="ozmoz-value-proposition">
+        <header>
+            <h1>Value Proposition Canvas</h1>
+            <p>Herstel het contact met je intuïtie. Maak keuzes die écht kloppen. Zie de wereld met nieuwe ogen.</p>
+        </header>
+        
+        <div class="canvas-layout">
+            <section id="client-side">
+                <h2>CLIENT PROFIEL</h2>
+                
+                <article id="jobs">
+                    <h3>Jobs</h3>
+                    <ul>
+                        <li>Helderheid over hun volgende stap in werk of leven</li>
+                        <li>Een methode die hen helpt naar binnen te keren</li>
+                        <li>Een manier om hun eigen antwoorden te vinden</li>
+                        <li>Verbinding met zichzelf en met anderen</li>
+                        <li>Iets dat écht werkt – niet zweverig, maar praktisch</li>
+                    </ul>
+                </article>
+                
+                <article id="pains">
+                    <h3>Pains</h3>
+                    <ul>
+                        <li>Een knagend gevoel van leegte: "Is dit het nou?"</li>
+                        <li>Keuzestress rond werk, relaties of levenspad</li>
+                        <li>Moeheid zonder duidelijke reden</li>
+                        <li>Twijfel aan zichzelf en hun intuïtie</li>
+                        <li>Een leven dat klopt aan de buitenkant, maar niet van binnen</li>
+                    </ul>
+                </article>
+                
+                <article id="gains">
+                    <h3>Gains</h3>
+                    <ul>
+                        <li>Richting en vertrouwen voelen van binnenuit</li>
+                        <li>Een innerlijk kompas dat houvast geeft</li>
+                        <li>Beslissingen nemen met rust en helderheid</li>
+                        <li>Ervaring van synchroniciteit en betekenis</li>
+                        <li>Een gevoel van thuiskomen bij zichzelf</li>
+                    </ul>
+                </article>
+            </section>
+            
+            <div class="canvas-divider"></div>
+            
+            <section id="value-proposition">
+                <h2>VALUE PROPOSITION</h2>
+                
+                <article id="products">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><strong>Ozmoz Challenge:</strong> test je intuïtie met twee gesloten dozen</li>
+                        <li><strong>Ozmoz Kompaz GPT:</strong> AI-coach die je helpt je vraag te formuleren en interpreteren</li>
+                        <li><strong>3 Vrienden Blind Challenge:</strong> geef of ontvang een intuïtief antwoord zonder voorkennis</li>
+                        <li><strong>Gratis live workshop:</strong> ervaar de methode in een groep</li>
+                        <li><strong>Betaalde online groep:</strong> begeleid groeitraject met gelijkgestemden</li>
+                    </ul>
+                </article>
+                
+                <article id="before">
+                    <h3>Voor Ozmoz</h3>
+                    <ul>
+                        <li>Voelt onzeker of verdwaald</li>
+                        <li>Staat op automatische piloot</li>
+                        <li>Zoekt houvast buiten zichzelf</li>
+                        <li>Denkt: "Ik weet het niet meer"</li>
+                    </ul>
+                </article>
+                
+                <article id="after">
+                    <h3>Na Ozmoz</h3>
+                    <ul>
+                        <li>Voelt verbinding met zichzelf en de wereld</li>
+                        <li>Heeft helderheid over wat klopt</li>
+                        <li>Neemt beslissingen met vertrouwen</li>
+                        <li>Ervaart synchroniciteit en innerlijke rust</li>
+                        <li>Wordt deel van een warme en groeiende gemeenschap</li>
+                    </ul>
+                </article>
+            </section>
+        </div>
+    </section>
+</body>
+</html>
