@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Vrienden Blind Question Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .concept-intro {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border-left: 5px solid #667eea;
+        }
+
+        .concept-intro p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #2d3748;
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 1.5rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .phase {
+            background: #f8fafc;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .phase h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid #667eea30;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-cta {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-cta h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta p {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .emoji {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .concept-intro p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>3-Vrienden Blind Question Challenge</h1>
+            <p class="subtitle">Concept Presentatie voor Ondernemerscoach</p>
+        </div>
+
+        <div class="concept-intro">
+            <h2>Het concept in één zin</h2>
+            <p>Een mobile-first webapp die mensen helpt diepere verbinding te maken met vrienden door hun belangrijkste levensvragen intuïtief te 'lezen' - en daarbij te ontdekken dat de antwoorden dichter bij huis liggen dan ze dachten.</p>
+        </div>
+
+        <section>
+            <h2>De waarde: verbinding & innerlijk weten</h2>
+            <p>In een tijd waarin we steeds meer digitaal verbonden maar emotioneel losser van elkaar worden, verlangt iedereen naar echte verbinding. De Challenge geeft mensen een speelse maar betekenisvolle manier om:</p>
+            
+            <ul>
+                <li><strong>Dieper contact</strong> te maken met vrienden - verder dan oppervlakkige gesprekken</li>
+                <li><strong>Hun intuïtieve vermogens</strong> te ontdekken en vertrouwen op te bouwen</li>
+                <li><strong>Antwoorden van binnen</strong> te vinden in plaats van eindeloos extern te zoeken</li>
+                <li><strong>Magische momenten</strong> te creëren die hun wereldbeeld verruimen</li>
+            </ul>
+            
+            <p>Het is een spelletje met een serieuze ondertoon - entertainment dat transformeert.</p>
+        </section>
+
+        <section>
+            <h2>Hoe de Challenge werkt</h2>
+            
+            <div class="phase">
+                <h3><span class="emoji">📱</span>Fase 1: Voorbereiding (2 min per vriend)</h3>
+                <ul>
+                    <li>Remote viewer nodigt 3 vrienden uit via app-link</li>
+                    <li>Elke vriend voert belangrijke levensvraag in + zelfgekozen 6-cijferige code</li>
+                    <li>App slaat alles op, maar toont niks aan remote viewer</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h3><span class="emoji">🔮</span>Fase 2: Intuïtief lezen (20 min)</h3>
+                <ul>
+                    <li>Remote viewer klikt 'Start Reading'</li>
+                    <li>App toont alleen: "Code 847293" (geen naam, geen context)</li>
+                    <li>Volgt Ozmoz-methode: kleuren, texturen, emoties vastleggen</li>
+                    <li>Audio-opname van indrukken → opgeslagen</li>
+                    <li>Hetzelfde voor alle 3 codes</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h3><span class="emoji">🔗</span>Fase 3: Verbinden & interpreteren (10 min)</h3>
+                <ul>
+                    <li>Na alle readings: app onthult vragen + namen</li>
+                    <li>"Code 847293 = Sarah: 'Moet ik van baan veranderen?'"</li>
+                    <li>AI helpt interpretatie van indrukken gekoppeld aan echte vraag</li>
+                    <li>Feedback gesprek met vrienden: wat klopte, wat raakte hen?</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Waarom dit krachtig is</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4><span class="emoji">❤️</span>Echte verbinding</h4>
+                    <p>Vrienden ervaren dat je hen echt 'ziet' en voelt. Diepere gesprekken over wat er echt speelt in hun leven. Gevoel van verbondenheid en wederzijds begrip.</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h4><span class="emoji">💪</span>Persoonlijke ontwikkeling</h4>
+                    <p>"Ik kan dit dus echt!" - opbouw van zelfvertrouwen. Bewustwording van eigen intuïtieve vermogens. Natuurlijke nieuwsgierigheid naar meer ontwikkeling.</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h4><span class="emoji">🛡️</span>Betrouwbaar proces</h4>
+                    <p>App zorgt ervoor dat proces eerlijk blijft (geen onbedoeld lekken). Geloofwaardigheid door methodische aanpak. Voor skeptici: transparant proces.</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h4><span class="emoji">🌱</span>Organische groei</h4>
+                    <p>Succesvolle readings prikkelen nieuwsgierigheid. "Hoe deed je dat?!" → natuurlijke interesse. Vrienden willen het zelf proberen (maar groei niet gegarandeerd).</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Businessmodel & verdienmodel</h2>
+            
+            <h3>Directe omzet: €0</h3>
+            <ul>
+                <li>App is volledig gratis</li>
+                <li>Doel is community building en leadgeneratie</li>
+            </ul>
+
+            <h3>Indirecte omzet via funnel:</h3>
+            <ul>
+                <li>Natuurlijke brug naar GPT lead-magnet</li>
+                <li>Verhoogde workshop conversie door persoonlijke ervaring</li>
+                <li>Kwalitatievere leads met bewezen interesse</li>
+            </ul>
+
+            <h3>Positie in de funnel:</h3>
+            <ul>
+                <li>Perfect na YouTube entertainment</li>
+                <li>Voor email-commitment stap</li>
+                <li>Vervangt gat tussen nieuwsgierigheid en betrokkenheid</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technische eisen</h2>
+            
+            <div class="highlight-box">
+                <h3>Kernfunctionaliteit:</h3>
+                <ul>
+                    <li>Mobile-first responsive design</li>
+                    <li>Vraag + code opslag systeem</li>
+                    <li>Gecontroleerde onthulling (pas na reading)</li>
+                    <li>Audio opname voor indrukken</li>
+                    <li>Stap-voor-stap Ozmoz handleiding</li>
+                </ul>
+
+                <h3>Uitgebreide functies:</h3>
+                <ul>
+                    <li>AI interpretatie ondersteuning</li>
+                    <li>Feedback verzameling</li>
+                    <li>Basis statistieken voor gebruiker</li>
+                    <li>Eenvoudige sharing tools</li>
+                </ul>
+
+                <p><strong>Ontwikkeltijd:</strong> 3-4 maanden MVP</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Marktkansen</h2>
+            <ul>
+                <li><strong>Doelgroep:</strong> Mensen geïnteresseerd in persoonlijke ontwikkeling, spiritualiteit, diepere verbindingen</li>
+                <li><strong>Timing:</strong> Groeiende behoefte aan echte verbinding na digitalisering</li>
+                <li><strong>Onderscheidend:</strong> Eerste tool die intuïtieve verbinding praktisch en toegankelijk maakt</li>
+            </ul>
+
+            <h3>Groei verwachting:</h3>
+            <ul>
+                <li>Conservatief: 1 op 3 uitgenodigden doet mee</li>
+                <li>Optimistisch: 2 op 3 uitgenodigden doet mee</li>
+                <li>Groeisnelheid afhankelijk van gebruikerservaring en mond-tot-mond reclame</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Succescriteria</h2>
+            
+            <h3>Betrokkenheid:</h3>
+            <ul>
+                <li>Hoeveel challenges worden voltooid</li>
+                <li>Feedback scores van vrienden</li>
+                <li>Herhaald gebruik (nieuwe challenges)</li>
+            </ul>
+
+            <h3>Funnel impact:</h3>
+            <ul>
+                <li>Conversie naar GPT tool</li>
+                <li>Workshop aanmeldingen via app-gebruikers</li>
+                <li>Email list groei</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Vervolgstappen</h2>
+            <ol style="list-style: decimal; padding-left: 2rem;">
+                <li><strong>MVP specificatie</strong> uitwerken</li>
+                <li><strong>Development partner</strong> selecteren</li>
+                <li><strong>Beta test</strong> met bestaande community</li>
+                <li><strong>Launch strategie</strong> bepalen</li>
+                <li><strong>Groei optimalisatie</strong> na eerste data</li>
+            </ol>
+        </section>
+
+        <div class="footer-cta">
+            <h3>De kans</h3>
+            <p>Een tool die het hart van jouw methode - verbinding en innerlijk weten - toegankelijk maakt voor iedereen, en natuurlijk leidt naar diepere betrokkenheid met jouw werk.</p>
+            
+            <h3 style="margin-top: 2rem;">De vraag</h3>
+            <p>Voelt dit als de juiste richting om jouw impact te vergroten?</p>
+        </div>
+    </div>
+</body>
+</html>
